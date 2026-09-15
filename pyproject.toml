@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "siamese-few-shot-learning"
+version = "1.0.0"
+description = "Reproducible Siamese-network components for episodic few-shot image classification."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Bahareh Keshavarz"},
+  {name = "Forough Mohammadamini"},
+  {name = "Mojtaba Sharifian"},
+]
+dependencies = [
+  "numpy>=1.24",
+  "pillow>=10",
+  "torch>=2.2",
+]
+
+[project.optional-dependencies]
+vision = ["torchvision>=0.17"]
+notebook = ["jupyter>=1.0", "matplotlib>=3.8"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.urls]
+Repository = "https://github.com/Bahareh527/siamese_fewshot_project"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
